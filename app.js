@@ -17,20 +17,22 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'c237_supermarketdb'
+const connection = mysql.createPool({
+    host: 'e4ondy.h.filess.io',
+    port: '3307',
+    user: 'supermarket_comematter',
+    password: '40b03e755c97f2c7eb9ef26c76ac192b5c708fe3',
+    database: 'supermarket_comematter',
+    connectionLimit: 5
   });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
-    }
-    console.log('Connected to MySQL database');
-});
+// connection.connect((err) => {
+//     if (err) {
+//         console.error('Error connecting to MySQL:', err);
+//         return;
+//     }
+//     console.log('Connected to MySQL database');
+// });
 
 // Set up view engine
 app.set('view engine', 'ejs');
